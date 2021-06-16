@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+     Stylesheet for Microsoft Word 2007/2008/2010 Bibliography formatting.
+     
+     Author(s): Yves Dhondt (yves.dhondt@gmail.com)
+               
+     Copyright: Copyright (c) 2009 Yves Dhondt
 
+                Permission is hereby granted, free of charge, to any person obtaining a
+                copy of this software and associated documentation files (the "Software"),
+                to deal in the Software without restriction, including without limitation
+                the rights to use, copy, modify, merge, publish, distribute, sublicense,
+                and/or sell copies of the Software, and to permit persons to whom the
+                Software is furnished to do so, subject to the following conditions:
+
+                The above copyright notice and this permission notice shall be included 
+                in all copies or substantial portions of the Software.
+
+                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+                THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+                FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+                DEALINGS IN THE SOFTWARE.
+  -->
 <xsl:stylesheet version="1.0"
   xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -8,11 +32,11 @@
   <!-- Variable containing all necessary data for a certain style of bibliography. -->
   <xsl:variable name="data">
     <general>
-      <stylename>ДСТУ 8302:2015 (сортування за порядком включення)</stylename>
+      <stylename>ДСТУ 8302:2015 (сортування за порядком)</stylename>
       <version>2021.06.16</version>
       <author>Левицький Віктор</author>
       <description>Реалізація стилів бібліографічних посилань для Microsoft Word 2010/2013/2016/2019 згідно з ДСТУ 8302:2015</description>
-      <URL>http://bibword.codeplex.com/updateStyle?id=123</URL>
+      <URL>https://github.com/solidol/BibWordDSTU</URL>
       <comments>
         This is version 2.8 of the BibWord stylesheet.
       </comments>
@@ -245,7 +269,7 @@
       </source>
       <source type="JournalArticle"><!-- what's the difference between this and ArticleInAPeriodial? Use the former. -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>
@@ -260,7 +284,7 @@
       </source>
       <source type="ArticleInAPeriodical"><!-- ok -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>
@@ -275,7 +299,7 @@
       </source>
       <source type="ConferenceProceedings"><!-- ok -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>
@@ -290,7 +314,7 @@
       </source>
       <source type="Report"><!-- not implemented -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>
@@ -305,7 +329,7 @@
       </source>
       <source type="InternetSite"><!-- ok -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>
@@ -320,7 +344,7 @@
       </source>
       <source type="DocumentFromInternetSite"><!-- ok -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>
@@ -335,7 +359,7 @@
       </source>
       <source type="ElectronicSource"><!-- ok, но один случай с 18-й страницы стандарта нельзя сделать при помощи source type-ов OOXML -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>
@@ -350,7 +374,7 @@
       </source>
       <source type="Patent"><!-- not implemented -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>
@@ -365,7 +389,7 @@
       </source>
       <source type="Misc">
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>
@@ -381,7 +405,7 @@
       </source>
       <source type="Standard"><!-- not implemented -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>
@@ -396,7 +420,7 @@
       </source>
       <source type="Thesis"><!-- not implemented -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%RefOrder%.}</format>
         </column>

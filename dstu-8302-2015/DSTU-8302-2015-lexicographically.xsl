@@ -34,11 +34,11 @@
   <!-- Variable containing all necessary data for a certain style of bibliography. -->
   <xsl:variable name="data">
     <general>
-      <stylename>ГОСТ Р 7.0.5-2008 (сортировка по именам)</stylename>
-      <version>2012.03.05</version>
-      <author>Андрей Рогожников (rogozhnikov.andrey@gmail.com)</author>
-      <description>Реализация стиля библиографии, определяемого ГОСТом Р 7.0.5-2008</description>
-      <URL>http://bibword.codeplex.com/updateStyle?id=123</URL>
+      <stylename>ДСТУ 8302:2015 (сортування лексикографічне)</stylename>
+      <version>2021.06.16</version>
+      <author>Левицький Віктор</author>
+      <description>Реалізація стилів бібліографічних посилань для Microsoft Word 2010/2013/2016/2019 згідно з ДСТУ 8302:2015</description>
+      <URL>https://github.com/solidol/BibWordDSTU</URL>
       <comments>
         This is version 2.8 of the BibWord stylesheet.
       </comments>
@@ -221,7 +221,7 @@
         <format>[%Tag%]</format>
       </source>
       <source type="Book">
-        <format>{%CitationPrefix%}{%Author:2|Editor:3|"[Anonymous]"%.}{ %Title|ShortTitle%.{ %Edition:o% ed.}{ Vol %Volume%.}}{ %City%{ (%StateProvince%)}{: %Publisher%{; %Year%}}}{ %Publisher%{; %Year%}}{ %Year%}.{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:2|Editor:3|"[Anonymous]"%.}{ %Title|ShortTitle%.{ %Edition:o% ed.}{ Vol %Volume%.}}{ %City%{ (%StateProvince%)}{: %Publisher%{; %Year%}}}{ %Publisher%{; %Year%}}{ %Year%}.{, %CitationPages:p. :pp. %}{%CitationSuffix%}{ URL: %URL:l%}</format>
       </source>
     </footnotecitation>
     <bibliography>
@@ -248,8 +248,9 @@
         <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format lcid="1033">{%Author:233|Editor:333%.}{ %Title|ShortTitle%.{ %Edition:o% ed.}{ Vol %Volume%.}}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ %Pages% pp.}</format>
-          <format lcid="1049">{%Author:249|Editor:349%.}{ %Title|ShortTitle%.{ %Edition%-е изд.}{ Т. %Volume%.}}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ %Pages% с.}</format>
+          <format lcid="1033">{%Author:233|Editor:333%.}{ %Title|ShortTitle%.{ %Edition:o% ed.}{ Vol %Volume%.}}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ %Pages% pp.}{ URL: %URL:l%}</format>
+          <format lcid="1049">{%Author:249|Editor:349%.}{ %Title|ShortTitle%.{ %Edition%-е изд.}{ Т. %Volume%.}}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ %Pages% с.}{ URL: %URL:l%}</format>
+          <format lcid="1058">{%Author:258|Editor:358%.}{ %Title|ShortTitle%.{ %Edition%-е вид.}{ Т. %Volume%.}}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ %Pages% с.}{ URL: %URL:l%}</format>
         </column>
 		<sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
@@ -262,14 +263,15 @@
         <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format lcid="1033">{%Author:233|Editor:333%.}{ %Title|ShortTitle%{. %Edition:o% ed.}{. Vol %Volume%.}{ // In: %BookTitle%}{ / Ed. by %BookAuthor:233%}.}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ %Pages:P. :pp. %}.</format>
+          <format lcid="1033">{%Author:233|Editor:333%.}{ %Title|ShortTitle%{. %Edition:o% ed.}{. Vol %Volume%.}{ // In: %BookTitle%}{ / Ed. by %BookAuthor:233%}.}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ %Pages:P. :pp. %}.{ URL: %URL:l%}</format>
           <format lcid="1049">{%Author:249|Editor:349%.}{ %Title|ShortTitle%{. %Edition%-е изд.}{. Т. %Volume%.}{ // В кн.: %BookTitle%}{ / ред. %BookAuthor:249%}.}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ С. %Pages%}.</format>
+          <format lcid="1058">{%Author:258|Editor:358%.}{ %Title|ShortTitle%{. %Edition%-е вид.}{. Т. %Volume%.}{ // В кн.: %BookTitle%}{ / за ред. %BookAuthor:258%}.}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ С. %Pages%}.</format>
         </column>
 		<sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="JournalArticle"><!-- what's the difference between this and ArticleInAPeriodial? Use the former. -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
@@ -278,12 +280,13 @@
           <valign>top</valign>
           <format lcid="1033">{%Author:233%. }{%Title%}{ // %JournalName%}{, Vol. %Volume%}{, No. %Issue%}{,{ %Month:s%} %Year%}{ . %Pages:P. :pp. %}.</format>
           <format lcid="1049">{%Author:249%. }{%Title%}{ // %JournalName%}{, Т. %Volume%}{, № %Issue%}{,{ %Month:s%} %Year%}{ . С. %Pages%}.</format>
+          <format lcid="1058">{%Author:258%. }{%Title%}{ // %JournalName%}{, Т. %Volume%}{, № %Issue%}{,{ %Month:s%} %Year%}{ . С. %Pages%}.</format>
         </column>
 		<sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="ArticleInAPeriodical"><!-- ok -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
@@ -292,12 +295,13 @@
           <valign>top</valign>
           <format lcid="1033">{%Author:233%.}{ %Title%}{ // %PeriodicalTitle%.}{{ %Month:s%} %Year%.}{ Vol. %Volume%.}{ No. %Issue%.}{ %Pages:P. :pp. %.}</format>
           <format lcid="1049">{%Author:249%.}{ %Title%}{ // %PeriodicalTitle%.}{{ %Month:s%} %Year%.}{ Т. %Volume%.}{ № %Issue%.}{ С. %Pages%.}</format>
+          <format lcid="1058">{%Author:258%.}{ %Title%}{ // %PeriodicalTitle%.}{{ %Month:s%} %Year%.}{ Т. %Volume%.}{ № %Issue%.}{ С. %Pages%.}</format>
         </column>
 		<sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="ConferenceProceedings"><!-- ok -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
@@ -306,12 +310,13 @@
           <valign>top</valign>
           <format lcid="1033">{%Author:233%.}{ %Title%}{ // %ConferenceName%.}{ %City|StateProvince|CountryRegion%.}{ %StateProvince|CountryRegion%.}{ %CountryRegion%.}{{ %Month:s%} %Year%.}{ Vol. %Volume%.}{ %Pages:P. :pp. %.}.</format>
           <format lcid="1049">{%Author:249%.}{ %Title%}{ // %ConferenceName%.}{ %City|StateProvince|CountryRegion%.}{ %StateProvince|CountryRegion%.}{ %CountryRegion%.}{{ %Month:s%} %Year%.}{ Т. %Volume%.}{ С. %Pages%.}.</format>
+          <format lcid="1058">{%Author:258%.}{ %Title%}{ // %ConferenceName%.}{ %City|StateProvince|CountryRegion%.}{ %StateProvince|CountryRegion%.}{ %CountryRegion%.}{{ %Month:s%} %Year%.}{ Т. %Volume%.}{ С. %Pages%.}.</format>
         </column>
         <sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="Report"><!-- not implemented -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
@@ -320,54 +325,58 @@
           <valign>top</valign>
           <format lcid="1033">{%Author:233%. }{%Title%, }{%Department%, }{%Institution%, }{%City|StateProvince|CountryRegion%, }{%StateProvince|CountryRegion%, }{%CountryRegion%, }{%ThesisType% }{%StandardNumber%, }{{%Month:s%{ %Day%,}} %Year%}.{ [Online]. %URL:l%}{ %Pages% pp.}</format>
           <format lcid="1049">{%Author:249%. }{%Title%, }{%Department%, }{%Institution%, }{%City|StateProvince|CountryRegion%, }{%StateProvince|CountryRegion%, }{%CountryRegion%, }{%ThesisType% }{%StandardNumber%, }{{%Month:s%{ %Day%,}} %Year%}.{ [Online]. %URL:l%}{ %Pages% с.}</format>
+          <format lcid="1058">{%Author:258%. }{%Title%, }{%Department%, }{%Institution%, }{%City|StateProvince|CountryRegion%, }{%StateProvince|CountryRegion%, }{%CountryRegion%, }{%ThesisType% }{%StandardNumber%, }{{%Month:s%{ %Day%,}} %Year%}.{ [Online]. %URL:l%}{ %Pages% с.}</format>
         </column>
         <sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="InternetSite"><!-- ok -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
         <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format lcid="1033">{%Author:249%.}{ %Title% [Электронный ресурс]}{ // %InternetSiteTitle%: [сайт].}{ [%Year%].}{ URL: %URL:0s%}{ (дата обращения: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
-          <format lcid="1049">{%Author:249%.}{ %Title% [Электронный ресурс]}{ // %InternetSiteTitle%: [сайт].}{ [%Year%].}{ URL: %URL:0s%}{ (дата обращения: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
+          <format lcid="1033">{%Author:249%.}{ %Title% }{ // %InternetSiteTitle%: [сайт].}{ [%Year%].}{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
+          <format lcid="1049">{%Author:249%.}{ %Title% }{ // %InternetSiteTitle%: [сайт].}{ [%Year%].}{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
+          <format lcid="1058">{%Author:258%.}{ %Title% }{ // %InternetSiteTitle%: [сайт].}{ [%Year%].}{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
         </column>
         <sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="DocumentFromInternetSite"><!-- ok -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
         <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-           <format lcid="1033">{%Author:249%.}{ %Title%}{ // %InternetSiteTitle%.}{ %Year%.}{ URL: %URL:0s%}{ (дата обращения: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
-           <format lcid="1049">{%Author:249%.}{ %Title%}{ // %InternetSiteTitle%.}{ %Year%.}{ URL: %URL:0s%}{ (дата обращения: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
+           <format lcid="1033">{%Author:249%.}{ %Title%}{ // %InternetSiteTitle%.}{ %Year%.}{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
+          <format lcid="1049">{%Author:249%.}{ %Title%}{ // %InternetSiteTitle%.}{ %Year%.}{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
+          <format lcid="1058">{%Author:258%.}{ %Title%}{ // %InternetSiteTitle%.}{ %Year%.}{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
         </column>
         <sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="ElectronicSource"><!-- ok, но один случай с 18-й страницы стандарта нельзя сделать при помощи source type-ов OOXML -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
         <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format lcid="1033">{%Author:249%.}{ %Title%.}{ %City%:}{ %Publisher%,}{ %Year%.}{ %Medium%.}</format>
-          <format lcid="1049">{%Author:249%.}{ %Title%.}{ %City%:}{ %Publisher%,}{ %Year%.}{ %Medium%.}</format>
+          <format lcid="1033">{%Author:249%.}{ %Title%.}{ %City%:}{ %Publisher%,}{ %Year%.}{ %Medium%.}{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
+          <format lcid="1049">{%Author:249%.}{ %Title%.}{ %City%:}{ %Publisher%,}{ %Year%.}{ %Medium%.}{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
+          <format lcid="1058">{%Author:258%.}{ %Title%.}{ %City%:}{ %Publisher%,}{ %Year%.}{ %Medium%.}{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
         </column>
         <sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="Patent"><!-- not implemented -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
@@ -376,12 +385,13 @@
           <valign>top</valign>
           <format lcid="1033">{%Inventor:233|Author:233%. }{%Title%,}{ %Type%}{ %PatentNumber%}{,{ %Month:s%{ %Day%,}} %Year%}.</format>
           <format lcid="1049">{%Inventor:249|Author:249%. }{%Title%,}{ %Type%}{ %PatentNumber%}{,{ %Month:s%{ %Day%,}} %Year%}.</format>
+          <format lcid="1058">{%Inventor:258|Author:258%. }{%Title%,}{ %Type%}{ %PatentNumber%}{,{ %Month:s%{ %Day%,}} %Year%}.</format>
         </column>
         <sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="Misc">
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
@@ -392,12 +402,13 @@
           <format lcid="1049">{%Author:149%. }{%Title%}{,{ %Month:s%{ %Day%,}} %Year%}{, %Comments%}.</format> -->
           <format lcid="1033">{%Author:233|Editor:333%.}{ %Title|ShortTitle%.{ %Edition:o% ed.}{ Vol %Volume%.}}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ %Pages% pp.}{ %Comments%.}</format>
           <format lcid="1049">{%Author:249|Editor:349%.}{ %Title|ShortTitle%.{ %Edition%-е изд.}{ Т. %Volume%.}}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ %Pages% с.}{ %Comments%.}</format>
+          <format lcid="1058">{%Author:258|Editor:358%.}{ %Title|ShortTitle%.{ %Edition%-е вид.}{ Т. %Volume%.}}{ %City%{ (%StateProvince%)}{: %Publisher%{, %Year%}}.}{ %Publisher%{, %Year%}.}{ %Year%.}{ %Pages% с.}{ %Comments%.}</format>
         </column>
         <sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="Standard"><!-- not implemented -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
@@ -406,20 +417,22 @@
           <valign>top</valign>
           <format lcid="1033">{%Author:233%. }{%Title%, }{%Institution%, }{%ThesisType% }{%StandardNumber%}{,{ %Month:s%} %Year%}.{ [Online]. %URL:l%}</format>
           <format lcid="1049">{%Author:249%. }{%Title%, }{%Institution%, }{%ThesisType% }{%StandardNumber%}{,{ %Month:s%} %Year%}.{ [Online]. %URL:l%}</format>
+          <format lcid="1058">{%Author:258%. }{%Title%, }{%Institution%, }{%ThesisType% }{%StandardNumber%}{,{ %Month:s%} %Year%}.{ [Online]. %URL:l%}</format>
         </column>
         <sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
       <source type="Thesis"><!-- not implemented -->
         <column id="1">
-          <halign>center</halign>
+          <halign>left</halign>
           <valign>top</valign>
           <format lcid="">{%BibOrder%.}</format>
         </column>
         <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format lcid="1033">{%Author:233%. }{%Title%, }{%ThesisType%, }{%Institution%, }{%City|StateProvince|CountryRegion%}{, %StateProvince|CountryRegion%}{, %CountryRegion%}{, %Year%}.{ [Online]. %URL:l%}</format>
-          <format lcid="1049">{%Author:249%. }{%Title%, }{%ThesisType%, }{%Institution%, }{%City|StateProvince|CountryRegion%}{, %StateProvince|CountryRegion%}{, %CountryRegion%}{, %Year%}.{ [Online]. %URL:l%}</format>
+          <format lcid="1033">{%Author:233%. }{%Title%, }{%ThesisType%, }{%Institution%, }{%City|StateProvince|CountryRegion%}{, %StateProvince|CountryRegion%}{, %CountryRegion%}{, %Year%}.{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
+          <format lcid="1049">{%Author:249%. }{%Title%, }{%ThesisType%, }{%Institution%, }{%City|StateProvince|CountryRegion%}{, %StateProvince|CountryRegion%}{, %CountryRegion%}{, %Year%}.{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
+          <format lcid="1058">{%Author:258%. }{%Title%, }{%ThesisType%, }{%Institution%, }{%City|StateProvince|CountryRegion%}{, %StateProvince|CountryRegion%}{, %CountryRegion%}{, %Year%}.{ URL: %URL:0s%}{ (дата звернення: %DayAccessed%.%MonthAccessed%.%YearAccessed%).}</format>
         </column>
         <sortkey>{%Author:233|Editor:333%}{%Title%}{%Year%}</sortkey>
       </source>
@@ -470,6 +483,21 @@
         <single_suffix></single_suffix>
         <multi_suffix></multi_suffix>
       </list>
+      <list name="citation" id="158">
+        <single_prefix></single_prefix>
+        <multi_prefix></multi_prefix>
+        <corporate>{%Corporate%}</corporate>
+        <first_person>{%Last|First%}{ %First:a%}{%Middle:a%}</first_person>
+        <other_persons>{%Last|First%}{ %First:a%}{%Middle:a%}</other_persons>
+        <separator_between_if_two>, </separator_between_if_two>
+        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+        <separator_before_last>, </separator_before_last>
+        <max_number_of_persons_to_display>2</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
+        <overflow> та ін.</overflow>
+        <single_suffix></single_suffix>
+        <multi_suffix></multi_suffix>
+      </list>
       <list name="author" id="233">
         <single_prefix></single_prefix>
         <multi_prefix></multi_prefix>
@@ -480,7 +508,7 @@
         <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
         <separator_before_last>, </separator_before_last>
         <max_number_of_persons_to_display>12</max_number_of_persons_to_display>
-        <number_of_persons_to_display_if_more_than_max>10</number_of_persons_to_display_if_more_than_max>
+        <number_of_persons_to_display_if_more_than_max>3</number_of_persons_to_display_if_more_than_max>
         <overflow>, et al.</overflow>
         <single_suffix></single_suffix>
         <multi_suffix></multi_suffix>
@@ -495,8 +523,23 @@
         <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
         <separator_before_last>, </separator_before_last>
         <max_number_of_persons_to_display>12</max_number_of_persons_to_display>
-        <number_of_persons_to_display_if_more_than_max>10</number_of_persons_to_display_if_more_than_max>
+        <number_of_persons_to_display_if_more_than_max>3</number_of_persons_to_display_if_more_than_max>
         <overflow> и др.</overflow>
+        <single_suffix></single_suffix>
+        <multi_suffix></multi_suffix>
+      </list>
+      <list name="author" id="258">
+        <single_prefix></single_prefix>
+        <multi_prefix></multi_prefix>
+        <corporate>{%Corporate%}</corporate>
+        <first_person>{%Last|First%}{ %First:apu%}{%Middle:apu%}</first_person>
+        <other_persons>{%Last|First%}{ %First:apu%}{%Middle:apu%}</other_persons>
+        <separator_between_if_two>, </separator_between_if_two>
+        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+        <separator_before_last>, </separator_before_last>
+        <max_number_of_persons_to_display>12</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>3</number_of_persons_to_display_if_more_than_max>
+        <overflow> та ін.</overflow>
         <single_suffix></single_suffix>
         <multi_suffix></multi_suffix>
       </list>
@@ -529,6 +572,21 @@
         <overflow> и др.</overflow>
         <single_suffix>, редактор</single_suffix>
         <multi_suffix>, редакторы</multi_suffix>
+      </list>
+      <list name="editor" id="358">
+        <single_prefix></single_prefix>
+        <multi_prefix></multi_prefix>
+        <corporate>{%Corporate%}</corporate>
+        <first_person>{%Last|First%}{ %First:a%}{%Middle:a%}</first_person>
+        <other_persons>{%Last|First%}{ %First:a%}{%Middle:a%}</other_persons>
+        <separator_between_if_two>, </separator_between_if_two>
+        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+        <separator_before_last>, </separator_before_last>
+        <max_number_of_persons_to_display>10</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>3</number_of_persons_to_display_if_more_than_max>
+        <overflow> та ін.</overflow>
+        <single_suffix>, під ред.</single_suffix>
+        <multi_suffix>, під ред.</multi_suffix>
       </list>
     </namelists>
     <strings>
