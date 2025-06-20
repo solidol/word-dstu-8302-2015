@@ -3,9 +3,10 @@
 <!--
      Stylesheet for Microsoft Word 2007/2008/2010 Bibliography formatting.
      
-     Author(s): Yves Dhondt (yves.dhondt@gmail.com)
+     Author(s): Yves Dhondt 
+                Victor Levytskyi 
                
-     Copyright: Copyright (c) 2009 Yves Dhondt
+     Copyright: Copyright (c) 2025 Yves Dhondt, Victor Levytskyi
 
                 Permission is hereby granted, free of charge, to any person obtaining a
                 copy of this software and associated documentation files (the "Software"),

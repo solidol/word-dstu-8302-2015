@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Stylesheet for Microsoft Word 2007/2008/2010 Bibliography formatting.
+     Stylesheet for Microsoft Word 2007/2008/2010/2016/2019 Bibliography formatting.
      
-     Author(s): Yves Dhondt (yves.dhondt@gmail.com)
+     Author(s): Yves Dhondt 
+                Victor Levytskyi 
                
-     Copyright: Copyright (c) 2009 Yves Dhondt
+     Copyright: Copyright (c) 2025 Yves Dhondt, Victor Levytskyi
 
                 Permission is hereby granted, free of charge, to any person obtaining a
                 copy of this software and associated documentation files (the "Software"),
@@ -33,12 +34,12 @@
   <xsl:variable name="data">
     <general>
       <stylename>ДСТУ 8302:2015 (сортування за порядком)</stylename>
-      <version>2021.06.16</version>
+      <version>2025.06.16</version>
       <author>Левицький Віктор</author>
       <description>Реалізація стилів бібліографічних посилань для Microsoft Word 2010/2013/2016/2019 згідно з ДСТУ 8302:2015</description>
       <URL>https://github.com/solidol/BibWordDSTU</URL>
       <comments>
-        This is version 2.8 of the BibWord stylesheet.
+        This is version 2.9 of the BibWord stylesheet.
       </comments>
       <display_errors>yes</display_errors>
       <citation_as_link>no</citation_as_link>
@@ -3678,6 +3679,6 @@
 
     <!-- Informative variable indicating which version of BibWord this is. -->
     <xsl:variable name="version">
-      <xsl:text>2.8</xsl:text>
+      <xsl:text>2.9</xsl:text>
     </xsl:variable>
   </xsl:stylesheet>
